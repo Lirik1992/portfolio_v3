@@ -9,7 +9,7 @@ module.exports = {
   siteHeadline: "Creating cool & blazginly fast websites", // Headline for schema.org JSONLD
   siteUrl: "https://lirik1992.github.io/portfolio_web", // Domain of your site. No trailing slash!
   siteLanguage: "en", // Language Tag on <html> element
-  siteLogo: "/logov2.svg", // Used for SEO and manifest
+  siteLogo: "/favicon.ico", // Used for SEO and manifest
   siteDescription: "Playful & Colorful One-Page website with Parallax effect",
   author: "Dmitry Likharev", // Author for schema.org JSONLD
 

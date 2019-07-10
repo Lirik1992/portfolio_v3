@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
+import Tilt from 'react-vanilla-tilt'
 
 const Wrapper = styled.a`
   width: 100%;
@@ -24,6 +25,9 @@ const Title = styled.div`
 `
 
 const ProjectCard = ({ title, link, children, bg }) => (
+  // <Tilt options={{ glare: true, perspective: 700, scale: 1.05 }}>
+    
+  // </Tilt>
   <Wrapper href={link} target="_blank" rel="noopener noreferrer" bg={bg}>
     <Text>{children}</Text>
     <Title>{title}</Title>

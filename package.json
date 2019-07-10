@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-portfolio-cara",
-  "description": "Playful & Colorful One-Page website with Parallax effect powered by react-spring, TailwindCSS.",
+  "name": "portfoliov3",
+  "description": "Front end developer portfolio",
   "version": "3.0.0",
-  "author": "LekoArts <hello@lekoarts.de> (https://www.lekoarts.de)",
+  "author": "Dmitry Likharev",
   "license": "MIT",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
@@ -22,6 +22,8 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-spring": "^8.0.27",
+    "react-text-scrambler": "^1.1.3",
+    "react-vanilla-tilt": "^1.0.0",
     "styled-components": "^4.3.2",
     "tailwind.macro": "^0.5.10",
     "tailwindcss": "^0.7.4",
@@ -53,7 +55,7 @@
     "prettier": "^1.18.2"
   },
   "repository": {
-    "url": "",
+    "url": "https://github.com/Lirik1992/portfolio_v3.git",
     "type": "git"
   }
 }
