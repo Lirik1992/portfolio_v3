@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import { Parallax } from 'react-spring/renderprops-addons.cjs'
 import { Cycler } from 'react-text-scrambler'
+import BlockRevealAnimation from 'react-block-reveal-animation'
 
 // Components
 import Layout from '../components/Layout'
@@ -62,19 +63,25 @@ const Footer = styled.footer`
   ${tw`text-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg`};
 `
 
+const Methods = styled.div`
+  color: #5918df;
+  display: inline;
+`
+
 const Index = () => {
-  const phrases = ['websites', 'ux/ui', 'things']
+  const phrases = ['websites', 'ux/ui', 'things', 'mobile applications', 'servers']
   return (
     <React.Fragment>
       <Layout />
       <Parallax pages={5}>
         <Hero offset={0}>
           <BigTitle>
-            Hello, <br /> I'm <Purple>Dmitry Likharev</Purple>.
+            Hello, <br /> I'm <Purple>Dmitry Likharev</Purple>
           </BigTitle>
+          <Subtitle>My passion is coding</Subtitle>
           <Subtitle>
             I develop and design &nbsp;
-            <Cycler duration={3000} delay={3000} strings={phrases} />
+            <Cycler duration={3000} delay={2000} strings={phrases} />
           </Subtitle>
         </Hero>
         <Projects offset={1}>
@@ -115,32 +122,28 @@ const Index = () => {
           <AboutHero>
             <Avatar src={avatar} alt="John Doe" />
             <AboutSub>
-              The English language can not fully capture the depth and complexity of my thoughts. So I'm incorporating
-              Emoji into my speech to better express myself. Winky face.
+              I am 26 years old developer from Russia. In the begining I was working as a freelancer for 2 years, then I
+              came to the enterprise and till now I'm working in high loaded projects (IoT, Web conferencing, etc.)
             </AboutSub>
           </AboutHero>
           <AboutDesc>
-            You know the way you feel when you see a picture of two otters holding hands? That's how you're gonna feel
-            every day. My mother cried the day I was born because she knew she’d never be prettier than me. You should
-            make me your campaign manager. I was born for politics. I have great hair and I love lying. Captain? The kids
-            want to know where Paulie the Pigeon is. I told them he got sucked up into an airplane engine, is that all
-            right?
+
+            <div>
+              {/* TODO: Iplement editor style text of skills, education, etc. */}
+            </div>
+
           </AboutDesc>
         </About>
         <Contact offset={4}>
           <Inner>
             <Title>Get in touch</Title>
             <ContactText>
-              Say <a href="mailto:plizNoSp4m@domain.tld">Hi</a> or find me on other platforms:{' '}
-              <a href="https://dribbble.com/LekoArts">Dribbble</a> &{' '}
-              <a href="https://www.instagram.com/lekoarts.de/">Instagram</a>
+              Say <a href="mailto:ldo19735@gmail.com">Hi</a> or find me on other platforms:{' '}
+              <a href="https://www.linkedin.com/in/dmitry-likharev-61a244178/">LinkedIn</a> &{' '}
+              <a href="https://www.instagram.com/push_remote/">Instagram</a>
             </ContactText>
           </Inner>
-          <Footer>
-            &copy; 2019 by Gatsby Starter Portfolio Cara.{' '}
-            <a href="https://github.com/LekoArts/gatsby-starter-portfolio-cara">GitHub Repository</a>. Made by{' '}
-            <a href="https://www.lekoarts.de">LekoArts</a>.
-          </Footer>
+          <Footer> &copy; 2019 made by Dmitry Likharev. </Footer>
         </Contact>
       </Parallax>
     </React.Fragment>
