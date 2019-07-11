@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import { Parallax } from 'react-spring/renderprops-addons.cjs'
 import { Cycler } from 'react-text-scrambler'
-import BlockRevealAnimation from 'react-block-reveal-animation'
+import PropTypes from 'prop-types'
 
 // Components
 import Layout from '../components/Layout'
@@ -63,11 +63,6 @@ const Footer = styled.footer`
   ${tw`text-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg`};
 `
 
-const Methods = styled.div`
-  color: #5918df;
-  display: inline;
-`
-
 const Index = () => {
   const phrases = ['websites', 'ux/ui', 'things', 'mobile applications', 'servers']
   return (
@@ -122,17 +117,57 @@ const Index = () => {
           <AboutHero>
             <Avatar src={avatar} alt="John Doe" />
             <AboutSub>
-              I am 26 years old developer from Russia. In the begining I was working as a freelancer for 2 years, then I
-              came to the enterprise and till now I'm working in high loaded projects (IoT, Web conferencing, etc.)
+              I am 26 years old developer from Russia. In the early start of my career I was working as a freelancer for
+              2 years, then I came to the enterprise and I am working in high loaded projects (IoT, Web conferencing,
+              etc.) for 3 years and counting.
             </AboutSub>
           </AboutHero>
-          <AboutDesc>
-
-            <div>
-              {/* TODO: Iplement editor style text of skills, education, etc. */}
-            </div>
-
-          </AboutDesc>
+          {/* <AboutDesc>
+          </AboutDesc> */}
+          <Inner style={{ marginTop: '40px' }}>
+            <CodeLine lineNumber="01" method="class" name="Dmitry Likharev" symbol="{" />
+            <CodeLine lineNumber="02" dot={aboutData.dot} comment={aboutData.comments[0]} />
+            <CodeLine lineNumber="03" dot={aboutData.dot} comment={aboutData.comments[1]} />
+            <CodeLine lineNumber="04" method="constructor" symbol="() {" dot={aboutData.dot} />
+            <CodeLine
+              lineNumber="05"
+              dot={aboutData.dot + aboutData.dot}
+              propTwo="name"
+              scope={aboutData.scope}
+              string={aboutData.name}
+            />
+            <CodeLine
+              lineNumber="06"
+              dot={aboutData.dot + aboutData.dot}
+              propTwo="dayOfBirthTimestamp"
+              scope={aboutData.scope}
+              string={aboutData.birthday}
+            />
+            <CodeLine
+              lineNumber="07"
+              dot={aboutData.dot + aboutData.dot}
+              propTwo="email"
+              scope={aboutData.scope}
+              string={aboutData.email}
+            />
+            <CodeLine lineNumber="08" symbol="}" dot={aboutData.dot} />
+            <CodeLine lineNumber="09" symbol="() {" name="workExperience" dot={aboutData.dot} />
+            <CodeLine lineNumber="10" symbol="[" method="return" dot={aboutData.dot + aboutData.dot} />
+            <CodeLine
+              lineNumber="11"
+              object={aboutData.workExperience[0]}
+              dot={aboutData.dot + aboutData.dot + aboutData.dot}
+            />
+            <CodeLine
+              lineNumber="12"
+              object={aboutData.workExperience[1]}
+              dot={aboutData.dot + aboutData.dot + aboutData.dot}
+            />
+            <CodeLine lineNumber="13" dot={aboutData.dot + aboutData.dot} symbol="]" />
+            <CodeLine lineNumber="14" dot={aboutData.dot} symbol="}" />
+            <CodeLine lineNumber="15" dot={aboutData.dot} name="skills" symbol="() {" />
+            <CodeLine lineNumber="16" dot={aboutData.dot + aboutData.dot} symbol="[" method="return" />
+          </Inner>
         </About>
         <Contact offset={4}>
           <Inner>
@@ -143,11 +178,149 @@ const Index = () => {
               <a href="https://www.instagram.com/push_remote/">Instagram</a>
             </ContactText>
           </Inner>
-          <Footer> &copy; 2019 made by Dmitry Likharev. </Footer>
+          <Footer>&copy; 2019 made by Dmitry Likharev.</Footer>
         </Contact>
       </Parallax>
     </React.Fragment>
   )
 }
 
+const aboutData = {
+  birthday: '719442000000',
+  email: `'ldo19735@gmail.com'`,
+  name: `'Dmitry Likharev'`,
+  dot: '..',
+  scope: ['this', '='],
+  comments: [`// I'm ambitious and love new challenges :)`, '// My vast variety of skills is continuously expanding.'],
+  workExperience: [
+    {
+      "'2014 - now'": `'Full-Stack Designer/developer as freelancer'`,
+    },
+    {
+      "'2016 - now'": `'Front-end Developer at MERA'`,
+    },
+  ],
+}
+
 export default Index
+
+const LineNumber = styled.div`
+  ${tw`font-sans text-lg`};
+  text-align: left;
+  margin-top: 3px;
+  &:before {
+    content: "${props => props.line_number}";
+    position: relative;
+    color: #514c66;
+    font-size: 16px;
+    line-height: 1.6;
+    z-index: 3;
+    top: -1px;
+    left: -10px;
+  }
+`
+
+const Methods = styled.div`
+  ${tw`font-sans text-lg`};
+  color: #398ef8;
+  display: inline;
+`
+const PropName = styled.div`
+  ${tw`font-sans text-lg`};
+  color: #eeff31;
+  display: inline;
+`
+
+const Symbol = styled.span`
+  position: relative;
+  color: #fff;
+  bottom: 1px;
+`
+
+const Dot = styled.div`
+  color: #3b3553;
+  display: inline;
+  position: relative;
+  top: -5px;
+`
+
+const Comment = styled.div`
+  color: #78707e;
+  display: inline;
+`
+
+const Scope = styled.div`
+  color: #e3244c;
+  display: inline;
+`
+
+const PropTwo = styled.span`
+  color: #24e394;
+  &:before {
+    content: '.';
+    color: #fff;
+  }
+`
+
+const String = styled.span`
+  color: #24e33a;
+`
+
+const CodeLine = ({ lineNumber, method, name, symbol, dot, comment, scope, propTwo, string, object }) => (
+  <LineNumber line_number={lineNumber}>
+    {dot ? <Dot>{dot} &nbsp;</Dot> : null}
+    {method ? <Methods>{method} &nbsp;</Methods> : null}
+    {name ? <PropName>{name} &nbsp;</PropName> : null}
+    {symbol ? <Symbol>{symbol}</Symbol> : null}
+    {comment ? <Comment>{comment}</Comment> : null}
+    {scope.length ? (
+      <Scope>
+        {scope[0]}
+        <PropTwo>{propTwo}</PropTwo>
+        &nbsp;
+        <Scope style={{ position: 'relative', top: '2px' }}>{scope[1]}</Scope>
+        &nbsp;
+        <String>{string}</String>
+      </Scope>
+    ) : null}
+    {Object.entries(object).length ? (
+      <Symbol>
+        {'{'}
+        &nbsp;&nbsp;
+        <String>{Object.keys(object)[0]}</String>
+        &nbsp;
+        {':'}
+        &nbsp;&nbsp;&nbsp;
+        <String>{Object.values(object)[0]}</String>
+        &nbsp;&nbsp;
+        {'}'}
+      </Symbol>
+    ) : null}
+  </LineNumber>
+)
+
+CodeLine.defaultProps = {
+  method: '',
+  lineNumber: '',
+  name: '',
+  symbol: '',
+  dot: '',
+  comment: '',
+  scope: [],
+  propTwo: '',
+  string: '',
+  object: {},
+}
+
+CodeLine.propTypes = {
+  method: PropTypes.string,
+  lineNumber: PropTypes.string,
+  name: PropTypes.string,
+  symbol: PropTypes.string,
+  dot: PropTypes.string,
+  comment: PropTypes.string,
+  scope: PropTypes.array,
+  propTwo: PropTypes.string,
+  string: PropTypes.string,
+  object: PropTypes.object,
+}
