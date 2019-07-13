@@ -8,11 +8,10 @@ const Wrapper = styled.div`
   width: 100%;
   height: inherit;
   ${tw`shadow-lg relative no-underline rounded-lg px-8 py-8 md:py-24 text-white`};
-  background: ${props => props.bg};
-  // transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  // &:hover {
-  //   transform: translateY(-5px);
-  // }
+  background: url("${props => props.bg}") no-repeat center;
+  background-size: cover;
+  background-color: gray;
+  background-blend-mode: luminosity;
 `
 
 const Text = styled.div`
@@ -26,6 +25,7 @@ const Title = styled.div`
 `
 
 const ProjectCard = ({ title, link, children, bg }) => {
+  console.log(bg)
   const handleClick = () => {
     console.log(link)
     // window.location.href = link

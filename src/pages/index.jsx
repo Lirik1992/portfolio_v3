@@ -18,6 +18,7 @@ import Hero from '../views/Hero'
 import Projects from '../views/Projects'
 import About from '../views/About'
 import Contact from '../views/Contact'
+import CodeLine from '../views/CodeLine'
 
 import avatar from '../images/avatar.jpg'
 
@@ -51,10 +52,6 @@ const AboutSub = styled.span`
   ${tw`text-white pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
 `
 
-const AboutDesc = styled.p`
-  ${tw`text-grey-light text-lg md:text-xl lg:text-2xl font-sans pt-6 md:pt-12 text-justify`};
-`
-
 const ContactText = styled.p`
   ${tw`text-grey-light font-sans text-xl md:text-2xl lg:text-3xl`};
 `
@@ -85,28 +82,29 @@ const Index = () => {
             <ProjectCard
               title="Freiheit"
               link="https://www.behance.net/gallery/58937147/Freiheit"
-              bg="linear-gradient(to right, #D4145A 0%, #FBB03B 100%)"
+              bg="../images/projectOne.jpg"
             >
               This project is my entry to Adobe's #ChallengeYourPerspective contest.
             </ProjectCard>
             <ProjectCard
               title="Harry Potter"
               link="https://www.behance.net/gallery/52915793/Harry-Potter"
-              bg="linear-gradient(to right, #662D8C 0%, #ED1E79 100%)"
+              bg="../images/projectOne.jpg"
+              // linear-gradient(to right, #662D8C 0%, #ED1E79 100%)
             >
               I entered the DOCMA 2017 award with this Harry Potter inspired image.
             </ProjectCard>
             <ProjectCard
               title="Tomb Raider"
               link="https://www.behance.net/gallery/43907099/Tomb-Raider"
-              bg="linear-gradient(to right, #009245 0%, #FCEE21 100%)"
+              bg="../images/projectOne.jpg"
             >
               Recreation of a Tomb Raider Wallpaper (Fan Art)
             </ProjectCard>
             <ProjectCard
               title="Eagle"
               link="https://www.behance.net/gallery/38068151/Eagle"
-              bg="linear-gradient(to right, #D585FF 0%, #00FFEE 100%)"
+              bg="../images/projectOne.jpg"
             >
               A fantasy image manipulation relocating the habitat of wild animals.
             </ProjectCard>
@@ -166,7 +164,15 @@ const Index = () => {
             <CodeLine lineNumber="13" dot={aboutData.dot + aboutData.dot} symbol="]" />
             <CodeLine lineNumber="14" dot={aboutData.dot} symbol="}" />
             <CodeLine lineNumber="15" dot={aboutData.dot} name="skills" symbol="() {" />
-            <CodeLine lineNumber="16" dot={aboutData.dot + aboutData.dot} symbol="[" method="return" />
+            <CodeLine
+              lineNumber="16"
+              dot={aboutData.dot + aboutData.dot}
+              symbol="["
+              method="return"
+              skills={aboutData.skills}
+            />
+            <CodeLine lineNumber="17" dot={aboutData.dot} symbol="}" />
+            <CodeLine lineNumber="18" symbol="}" />
           </Inner>
         </About>
         <Contact offset={4}>
@@ -200,127 +206,7 @@ const aboutData = {
       "'2016 - now'": `'Front-end Developer at MERA'`,
     },
   ],
+  skills: `'HTML5.1/CSS4/JS', 'React', 'Jest', 'AngularJS', 'Karma', 'jQuery', 'Node.js', 'Bootstrap/Material Design', 'Webpack/Gulp/Grunt', 'SASS/SCSS', 'npm/yarn/bower', 'PWA', 'SSR', 'SPA', 'GIT', 'Python', 'Django'`,
 }
 
 export default Index
-
-const LineNumber = styled.div`
-  ${tw`font-sans text-lg`};
-  text-align: left;
-  margin-top: 3px;
-  &:before {
-    content: "${props => props.line_number}";
-    position: relative;
-    color: #514c66;
-    font-size: 16px;
-    line-height: 1.6;
-    z-index: 3;
-    top: -1px;
-    left: -10px;
-  }
-`
-
-const Methods = styled.div`
-  ${tw`font-sans text-lg`};
-  color: #398ef8;
-  display: inline;
-`
-const PropName = styled.div`
-  ${tw`font-sans text-lg`};
-  color: #eeff31;
-  display: inline;
-`
-
-const Symbol = styled.span`
-  position: relative;
-  color: #fff;
-  bottom: 1px;
-`
-
-const Dot = styled.div`
-  color: #3b3553;
-  display: inline;
-  position: relative;
-  top: -5px;
-`
-
-const Comment = styled.div`
-  color: #78707e;
-  display: inline;
-`
-
-const Scope = styled.div`
-  color: #e3244c;
-  display: inline;
-`
-
-const PropTwo = styled.span`
-  color: #24e394;
-  &:before {
-    content: '.';
-    color: #fff;
-  }
-`
-
-const String = styled.span`
-  color: #24e33a;
-`
-
-const CodeLine = ({ lineNumber, method, name, symbol, dot, comment, scope, propTwo, string, object }) => (
-  <LineNumber line_number={lineNumber}>
-    {dot ? <Dot>{dot} &nbsp;</Dot> : null}
-    {method ? <Methods>{method} &nbsp;</Methods> : null}
-    {name ? <PropName>{name} &nbsp;</PropName> : null}
-    {symbol ? <Symbol>{symbol}</Symbol> : null}
-    {comment ? <Comment>{comment}</Comment> : null}
-    {scope.length ? (
-      <Scope>
-        {scope[0]}
-        <PropTwo>{propTwo}</PropTwo>
-        &nbsp;
-        <Scope style={{ position: 'relative', top: '2px' }}>{scope[1]}</Scope>
-        &nbsp;
-        <String>{string}</String>
-      </Scope>
-    ) : null}
-    {Object.entries(object).length ? (
-      <Symbol>
-        {'{'}
-        &nbsp;&nbsp;
-        <String>{Object.keys(object)[0]}</String>
-        &nbsp;
-        {':'}
-        &nbsp;&nbsp;&nbsp;
-        <String>{Object.values(object)[0]}</String>
-        &nbsp;&nbsp;
-        {'}'}
-      </Symbol>
-    ) : null}
-  </LineNumber>
-)
-
-CodeLine.defaultProps = {
-  method: '',
-  lineNumber: '',
-  name: '',
-  symbol: '',
-  dot: '',
-  comment: '',
-  scope: [],
-  propTwo: '',
-  string: '',
-  object: {},
-}
-
-CodeLine.propTypes = {
-  method: PropTypes.string,
-  lineNumber: PropTypes.string,
-  name: PropTypes.string,
-  symbol: PropTypes.string,
-  dot: PropTypes.string,
-  comment: PropTypes.string,
-  scope: PropTypes.array,
-  propTwo: PropTypes.string,
-  string: PropTypes.string,
-  object: PropTypes.object,
-}
