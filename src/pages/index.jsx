@@ -206,7 +206,7 @@ const aboutData = {
       "'2016 - now'": `'Front-end Developer at MERA'`,
     },
   ],
-  skills: `'HTML5.1/CSS4/JS', 'React', 'Jest', 'AngularJS', 'Karma', 'jQuery', 'Node.js', 'Bootstrap/Material Design', 'Webpack/Gulp/Grunt', 'SASS/SCSS', 'npm/yarn/bower', 'PWA', 'SSR', 'SPA', 'GIT', 'Python', 'Django'`,
+  skills: `'HTML5.1/CSS4/JS', 'React', 'Jest', 'AngularJS', 'Karma', 'jQuery', 'Node.js', 'Bootstrap/Material Design', 'Webpack/Gulp/Grunt', 'SASS/SCSS', 'npm/yarn/bower', 'PWA', 'SSR', 'SPA', 'GIT', 'Python', 'Django', 'Jade/Pug`,
 }
 
 export default Index

@@ -8,10 +8,11 @@ const Wrapper = styled.div`
   width: 100%;
   height: inherit;
   ${tw`shadow-lg relative no-underline rounded-lg px-8 py-8 md:py-24 text-white`};
-  background: url("${props => props.bg}") no-repeat center;
+  background: url("${props => props.bg}") no-repeat center center;
   background-size: cover;
-  background-color: gray;
-  background-blend-mode: luminosity;
+  // background-color: gray;
+  // background-blend-mode: luminosity;
+  filter: blur(5px);
 `
 
 const Text = styled.div`
