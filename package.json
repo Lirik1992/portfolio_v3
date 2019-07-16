@@ -31,6 +31,10 @@
     "typeface-cantata-one": "^0.0.72",
     "typeface-open-sans": "^0.0.54"
   },
+  "engines": {
+    "node": "~10.14.2",
+    "npm": "~6.4.1"
+  },
   "keywords": [
     "gatsby",
     "starter",
