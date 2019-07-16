@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import { Parallax } from 'react-spring/renderprops-addons.cjs'
 import { Cycler } from 'react-text-scrambler'
-import PropTypes from 'prop-types'
 
 // Components
 import Layout from '../components/Layout'
@@ -21,18 +20,27 @@ import Contact from '../views/Contact'
 import CodeLine from '../views/CodeLine'
 
 import avatar from '../images/avatar.jpg'
+import projectOne from '../images/projectOne.jpg'
+import projectTwo from '../images/projectTwo.jpg'
+import projectThree from '../images/projectThree.jpg'
+import projectFour from '../images/projectFour.jpg'
+import projectFive from '../images/projectFive.jpg'
+import projectSix from '../images/projectSix.jpg'
 
 const ProjectsWrapper = styled.div`
   ${tw`flex flex-wrap justify-between mt-8`};
   display: grid;
   grid-gap: 4rem;
-  grid-template-columns: repeat(2, 1fr);
-  @media (max-width: 1200px) {
-    grid-gap: 3rem;
+  grid-template-columns: repeat(2, 440px);
+  @media (max-width: 1100px) {
+    grid-template-columns: 440px;
+    grid-gap: 2rem;
+    justify-content: center;
   }
   @media (max-width: 900px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 440px;
     grid-gap: 2rem;
+    justify-content: center;
   }
 `
 
@@ -79,34 +87,23 @@ const Index = () => {
         <Projects offset={1}>
           <Title>Projects</Title>
           <ProjectsWrapper>
-            <ProjectCard
-              title="Freiheit"
-              link="https://www.behance.net/gallery/58937147/Freiheit"
-              bg="../images/projectOne.jpg"
-            >
-              This project is my entry to Adobe's #ChallengeYourPerspective contest.
+            <ProjectCard title="Avaya" link="https://www.avaya.com/en" bg={projectOne}>
+              Freelance as invited specialist
             </ProjectCard>
-            <ProjectCard
-              title="Harry Potter"
-              link="https://www.behance.net/gallery/52915793/Harry-Potter"
-              bg="../images/projectOne.jpg"
-              // linear-gradient(to right, #662D8C 0%, #ED1E79 100%)
-            >
-              I entered the DOCMA 2017 award with this Harry Potter inspired image.
+            <ProjectCard title="Arrow" link="https://www.arrow.com" bg={projectTwo}>
+              Invited as freelance Front-end specialist
             </ProjectCard>
-            <ProjectCard
-              title="Tomb Raider"
-              link="https://www.behance.net/gallery/43907099/Tomb-Raider"
-              bg="../images/projectOne.jpg"
-            >
-              Recreation of a Tomb Raider Wallpaper (Fan Art)
+            <ProjectCard title="Mera" link="https://www.mera.com/" bg={projectThree}>
+              Full-time Front-end developer
             </ProjectCard>
-            <ProjectCard
-              title="Eagle"
-              link="https://www.behance.net/gallery/38068151/Eagle"
-              bg="../images/projectOne.jpg"
-            >
-              A fantasy image manipulation relocating the habitat of wild animals.
+            <ProjectCard title="Travelhouse" link="https://lirik1992.github.io/travelhouse" bg={projectFour}>
+              Material design UX/UI development
+            </ProjectCard>
+            <ProjectCard title="Red Hawk" link="https://www.http://redhawk.ru/" bg={projectFive}>
+              Animation and Front-end
+            </ProjectCard>
+            <ProjectCard title="Detailing Alarm" link="https://detailing-alarm.ru/" bg={projectSix}>
+              UI and layout work
             </ProjectCard>
           </ProjectsWrapper>
         </Projects>
@@ -120,8 +117,6 @@ const Index = () => {
               etc.) for 3 years and counting.
             </AboutSub>
           </AboutHero>
-          {/* <AboutDesc>
-          </AboutDesc> */}
           <Inner style={{ marginTop: '40px' }}>
             <CodeLine lineNumber="01" method="class" name="Dmitry Likharev" symbol="{" />
             <CodeLine lineNumber="02" dot={aboutData.dot} comment={aboutData.comments[0]} />
