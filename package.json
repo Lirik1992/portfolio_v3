@@ -41,7 +41,7 @@
     "portfolio"
   ],
   "scripts": {
-    "heroku-postbuild": "gatsby build",
+    "now-build": "npm run build",
     "dev": "gatsby develop -o",
     "develop": "gatsby develop",
     "build": "gatsby build",
