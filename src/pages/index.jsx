@@ -29,17 +29,22 @@ import projectSix from '../images/projectSix.jpg'
 
 const ProjectsWrapper = styled.div`
   ${tw`flex flex-wrap justify-between mt-8`};
+  // display: grid;
+  // grid-gap: 4rem;
+  // grid-template-columns: repeat(2, 440px);
   display: grid;
-  grid-gap: 4rem;
-  grid-template-columns: repeat(2, 440px);
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  justify-items: center;
+  gap: 30px 30px;
   @media (max-width: 1100px) {
-    grid-template-columns: 440px;
-    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    justify-items: center;
+    gap: 30px 30px;
     justify-content: center;
   }
   @media (max-width: 900px) {
-    grid-template-columns: 440px;
-    grid-gap: 2rem;
+    justify-items: center;
+    gap: 30px 30px;
     justify-content: center;
   }
 `

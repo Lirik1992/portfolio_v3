@@ -38,11 +38,11 @@ const Title = styled.div`
 
 const TextWrapper = styled.div`
   position: relative;
-  top: -50px;
-  left: -75px;
+  top: -30px;
+  left: -40px;
   font-weight: 700;
   line-height: 1.2;
-  width: 282px;
+  width: 180px;
   height: 100px;
   bottom: 10px;
   transform: translateZ(20px);
